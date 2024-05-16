@@ -10,6 +10,20 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
+			 if (arr.length < 2) {
+        return -Infinity;
+    }
+
+    // Remove duplicates and sort the array in descending order
+    const uniqueSortedArr = [...new Set(arr)].sort((a, b) => b - a);
+
+    // If all elements are the same, return -Infinity
+    if (uniqueSortedArr.length === 1) {
+        return -Infinity;
+    }
+
+    // Return the second element (which is the second highest)
+    return uniqueSortedArr[1];
 			
 		}
 
@@ -19,9 +33,12 @@
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
 			}
-			alert(secondHighest(arr));
+			
+			alert(secondHighest(arr)); 
+			
 		}
-		Main();
+
+	Main();
 	</script>
 
     <script type="text/javascript" src="./script.js">
